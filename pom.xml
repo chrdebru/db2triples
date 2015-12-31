@@ -74,7 +74,6 @@
     	<type>jar</type>
     	<scope>runtime</scope>
     </dependency>
-    
   </dependencies>
   
   <url>https://github.com/antidot/db2triples</url>
@@ -102,6 +101,19 @@
   </organization>
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+			  <classpathPrefix>dependency/</classpathPrefix>
+			  <mainClass>net.antidot.semantic.rdf.rdb2rdf.main.Db2triples</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
