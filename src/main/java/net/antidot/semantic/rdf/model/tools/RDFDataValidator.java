@@ -30,10 +30,10 @@ package net.antidot.semantic.rdf.model.tools;
 import java.util.Locale;
 import java.util.MissingResourceException;
 
-import net.antidot.semantic.xmls.xsd.XSDType;
-
 import org.openrdf.model.ValueFactory;
 import org.openrdf.model.impl.ValueFactoryImpl;
+
+import net.antidot.semantic.xmls.xsd.DataType;
 
 public abstract class RDFDataValidator {
 	
@@ -116,7 +116,7 @@ public abstract class RDFDataValidator {
 		boolean isValid = true;
 		if (!isValidURI(datatype)) return false;
 		try {
-			XSDType.toXSDType(datatype);
+			DataType.toDataType(datatype);
 		} catch (IllegalArgumentException e) {
 			isValid = false;
 		}
@@ -132,7 +132,7 @@ public abstract class RDFDataValidator {
 	 * @param Value
 	 * @return
 	 */
-	public static boolean isIllTyped(XSDType dataype, Object Value){
+	public static boolean isIllTyped(DataType dataype, Object Value){
 		// TODO
 		return false;
 	}

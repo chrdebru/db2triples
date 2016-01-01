@@ -33,7 +33,7 @@ import java.math.BigDecimal;
 public class XSDLexicalForm {
 	
 	public static String getCanonicalLexicalForm(
-			String nonCanonicalLexicalForm, XSDType type) {
+			String nonCanonicalLexicalForm, DataType type) {
 		String result = nonCanonicalLexicalForm;
 		switch (type) {
 		case DECIMAL:

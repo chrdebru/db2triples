@@ -46,7 +46,7 @@ import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLSyntaxExcept
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.R2RMLDataError;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.tools.R2RMLToolkit;
 import net.antidot.semantic.xmls.xsd.XSDLexicalTransformation;
-import net.antidot.semantic.xmls.xsd.XSDType;
+import net.antidot.semantic.xmls.xsd.DataType;
 import net.antidot.sql.model.db.ColumnIdentifier;
 import net.antidot.sql.model.db.ColumnIdentifierImpl;
 import net.antidot.sql.model.type.SQLType;
@@ -57,9 +57,9 @@ public abstract class AbstractTermMap implements TermMap {
 	private static Log log = LogFactory.getLog(AbstractTermMap.class);
 
 	private Value constantValue;
-	private XSDType dataType;
+	private DataType dataType;
 	private TermType termType;
-	private XSDType implicitDataType;
+	private DataType implicitDataType;
 	private String languageTag;
 	private String stringTemplate;
 	private ColumnIdentifier columnValue;
@@ -274,7 +274,7 @@ public abstract class AbstractTermMap implements TermMap {
 		if (dataType != null) {
 			// Check if datatype is valid
 			checkDataType(dataType);
-			this.dataType = XSDType.toXSDType(dataType.stringValue());
+			this.dataType = DataType.toDataType(dataType.stringValue());
 		}
 	}
 
@@ -282,11 +282,11 @@ public abstract class AbstractTermMap implements TermMap {
 		return constantValue;
 	}
 
-	public XSDType getDataType() {
+	public DataType getDataType() {
 		return dataType;
 	}
 
-	public XSDType getImplicitDataType() {
+	public DataType getImplicitDataType() {
 		return implicitDataType;
 	}
 
@@ -376,7 +376,7 @@ public abstract class AbstractTermMap implements TermMap {
 		return (termType == TermType.LITERAL) && (languageTag == null);
 	}
 
-	public void setImplicitDataType(XSDType implicitDataType) {
+	public void setImplicitDataType(DataType implicitDataType) {
 		this.implicitDataType = implicitDataType;
 	}
 
@@ -407,7 +407,7 @@ public abstract class AbstractTermMap implements TermMap {
 			// Apply cast to string to the SQL data value
 			String result;
 			if (sqlType != null) {
-				XSDType xsdType = SQLToXMLS.getEquivalentType(sqlType);
+				DataType xsdType = SQLToXMLS.getEquivalentType(sqlType);
 				result = XSDLexicalTransformation.extractNaturalRDFFormFrom(
 						xsdType, bytesResult);
 			}

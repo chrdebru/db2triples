@@ -30,7 +30,7 @@ package net.antidot.semantic.rdf.rdb2rdf.commons;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.antidot.semantic.xmls.xsd.XSDType;
+import net.antidot.semantic.xmls.xsd.DataType;
 import net.antidot.sql.model.type.SQLType;
 
 public abstract class SQLToXMLS {
@@ -38,35 +38,35 @@ public abstract class SQLToXMLS {
 	/**
 	 * Equivalence datatype between standard SQL types and XSD types.
 	 */
-	private static Map<SQLType, XSDType> equivalentTypes = new HashMap<SQLType, XSDType>();
+	private static Map<SQLType, DataType> equivalentTypes = new HashMap<SQLType, DataType>();
 	
 	static {
-		equivalentTypes.put(SQLType.BINARY, XSDType.HEXBINARY);
-		equivalentTypes.put(SQLType.BINARY_VARYING, XSDType.HEXBINARY);
-		equivalentTypes.put(SQLType.NUMERIC, XSDType.DECIMAL);
-		equivalentTypes.put(SQLType.DECIMAL, XSDType.DECIMAL);
-		equivalentTypes.put(SQLType.SMALLINT, XSDType.INTEGER);
-		equivalentTypes.put(SQLType.INTEGER, XSDType.INTEGER);
-		equivalentTypes.put(SQLType.BIGINT, XSDType.INTEGER);
-		equivalentTypes.put(SQLType.FLOAT, XSDType.DOUBLE);
-		equivalentTypes.put(SQLType.REAL, XSDType.DOUBLE);
-		equivalentTypes.put(SQLType.DOUBLE_PRECISION, XSDType.DOUBLE);
-		equivalentTypes.put(SQLType.BOOLEAN, XSDType.BOOLEAN);
-		equivalentTypes.put(SQLType.BIT, XSDType.BOOLEAN);
-		equivalentTypes.put(SQLType.TINYINT, XSDType.BOOLEAN);
-		equivalentTypes.put(SQLType.DATE, XSDType.DATE);
-		equivalentTypes.put(SQLType.TIME, XSDType.TIME);
-		equivalentTypes.put(SQLType.TIMESTAMP, XSDType.DATETIME);
-		equivalentTypes.put(SQLType.VARCHAR, XSDType.STRING);
-		equivalentTypes.put(SQLType.CHAR, XSDType.STRING);
-		equivalentTypes.put(SQLType.STRING, XSDType.STRING);
+		equivalentTypes.put(SQLType.BINARY, DataType.HEXBINARY);
+		equivalentTypes.put(SQLType.BINARY_VARYING, DataType.HEXBINARY);
+		equivalentTypes.put(SQLType.NUMERIC, DataType.DECIMAL);
+		equivalentTypes.put(SQLType.DECIMAL, DataType.DECIMAL);
+		equivalentTypes.put(SQLType.SMALLINT, DataType.INTEGER);
+		equivalentTypes.put(SQLType.INTEGER, DataType.INTEGER);
+		equivalentTypes.put(SQLType.BIGINT, DataType.INTEGER);
+		equivalentTypes.put(SQLType.FLOAT, DataType.DOUBLE);
+		equivalentTypes.put(SQLType.REAL, DataType.DOUBLE);
+		equivalentTypes.put(SQLType.DOUBLE_PRECISION, DataType.DOUBLE);
+		equivalentTypes.put(SQLType.BOOLEAN, DataType.BOOLEAN);
+		equivalentTypes.put(SQLType.BIT, DataType.BOOLEAN);
+		equivalentTypes.put(SQLType.TINYINT, DataType.BOOLEAN);
+		equivalentTypes.put(SQLType.DATE, DataType.DATE);
+		equivalentTypes.put(SQLType.TIME, DataType.TIME);
+		equivalentTypes.put(SQLType.TIMESTAMP, DataType.DATETIME);
+		equivalentTypes.put(SQLType.VARCHAR, DataType.STRING);
+		equivalentTypes.put(SQLType.CHAR, DataType.STRING);
+		equivalentTypes.put(SQLType.STRING, DataType.STRING);
 	}
 	
-	public static XSDType getEquivalentType(SQLType sqlType){
+	public static DataType getEquivalentType(SQLType sqlType){
 		return equivalentTypes.get(sqlType);
 	}
 	
-	public static XSDType getEquivalentType(int sqlType){
+	public static DataType getEquivalentType(int sqlType){
 		return equivalentTypes.get(SQLType.toSQLType(sqlType));
 	}
 	

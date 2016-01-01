@@ -40,7 +40,7 @@ import java.util.StringTokenizer;
 import net.antidot.semantic.rdf.rdb2rdf.commons.SQLToXMLS;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.R2RMLDataError;
 import net.antidot.semantic.xmls.xsd.XSDLexicalTransformation;
-import net.antidot.semantic.xmls.xsd.XSDType;
+import net.antidot.semantic.xmls.xsd.DataType;
 import net.antidot.sql.model.db.ColumnIdentifier;
 import net.antidot.sql.model.db.ColumnIdentifierImpl;
 import net.antidot.sql.model.type.SQLType;
@@ -282,7 +282,7 @@ public abstract class R2RMLToolkit {
 			// Apply cast to string to the SQL data value
 			String value;
 			if (sqlType != null) {
-				XSDType xsdType = SQLToXMLS.getEquivalentType(sqlType);
+				DataType xsdType = SQLToXMLS.getEquivalentType(sqlType);
 				value = XSDLexicalTransformation.extractNaturalRDFFormFrom(
 						xsdType, byteValue);
 			}

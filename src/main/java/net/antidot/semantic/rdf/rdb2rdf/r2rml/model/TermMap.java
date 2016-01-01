@@ -34,7 +34,7 @@ import java.util.Set;
 
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.R2RMLDataError;
 import net.antidot.semantic.xmls.xsd.XSDLexicalTransformation;
-import net.antidot.semantic.xmls.xsd.XSDType;
+import net.antidot.semantic.xmls.xsd.DataType;
 import net.antidot.sql.model.db.ColumnIdentifier;
 
 import org.openrdf.model.Value;
@@ -109,7 +109,7 @@ public interface TermMap {
 	 * Typeable term maps may generate typed literals. The datatype of these
 	 * literals can be explicitly specified using rr:datatype.
 	 */
-	public XSDType getDataType();
+	public DataType getDataType();
 
 	/**
 	 * A typeable term map has an implicit datatype. If the term map is a
@@ -118,7 +118,7 @@ public interface TermMap {
 	 * Otherwise, the term map must be a template-valued term map and its
 	 * implicit datatype is empty
 	 */
-	public XSDType getImplicitDataType();
+	public DataType getImplicitDataType();
 
 	/**
 	 * A datatype override is in effect on a typeable term map if it has a

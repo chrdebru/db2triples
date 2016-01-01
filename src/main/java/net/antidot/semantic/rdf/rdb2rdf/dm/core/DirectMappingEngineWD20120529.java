@@ -44,7 +44,7 @@ import net.antidot.semantic.rdf.rdb2rdf.commons.SQLToXMLS;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.core.R2RMLProcessor;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.tools.R2RMLToolkit;
 import net.antidot.semantic.xmls.xsd.XSDLexicalTransformation;
-import net.antidot.semantic.xmls.xsd.XSDType;
+import net.antidot.semantic.xmls.xsd.DataType;
 import net.antidot.sql.model.core.DriverType;
 import net.antidot.sql.model.db.CandidateKey;
 import net.antidot.sql.model.db.ForeignKey;
@@ -774,7 +774,7 @@ public class DirectMappingEngineWD20120529 implements DirectMappingEngine {
 			// Don't keep triple with null value
 			return null;
 		}
-		XSDType type = null;
+		DataType type = null;
 		SQLType sqlType = SQLType.toSQLType(Integer.valueOf(d));
 		if (sqlType.isBlobType()) {
 			if (log.isDebugEnabled())
@@ -799,7 +799,7 @@ public class DirectMappingEngineWD20120529 implements DirectMappingEngine {
 		}
 		// Canonical lexical form
 		String v_str = XSDLexicalTransformation.extractNaturalRDFFormFrom(type, v);
-		if (type.toString().equals(XSDType.STRING.toString())) {
+		if (type.toString().equals(DataType.STRING.toString())) {
 			l = vf.createLiteral(v_str);
 		} else {
 			URI datatype_iri = convertDatatype(d);

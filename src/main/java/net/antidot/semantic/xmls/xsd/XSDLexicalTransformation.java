@@ -40,24 +40,24 @@ public class XSDLexicalTransformation {
      * The RDF transformation of a SQL datatype is a transformation rule given
      * in the table below.
      */
-    private static Map<XSDType, Transformation> correspondingTransformation = new HashMap<XSDType, Transformation>();
+    private static Map<DataType, Transformation> correspondingTransformation = new HashMap<DataType, Transformation>();
 
     static {
-	correspondingTransformation.put(XSDType.HEXBINARY,
+	correspondingTransformation.put(DataType.HEXBINARY,
 		Transformation.HEX_ENCODING);
-	correspondingTransformation.put(XSDType.DECIMAL,
+	correspondingTransformation.put(DataType.DECIMAL,
 		Transformation.NONE_REQUIRED);
-	correspondingTransformation.put(XSDType.INTEGER,
+	correspondingTransformation.put(DataType.INTEGER,
 		Transformation.NONE_REQUIRED);
-	correspondingTransformation.put(XSDType.DOUBLE,
+	correspondingTransformation.put(DataType.DOUBLE,
 		Transformation.NONE_REQUIRED);
-	correspondingTransformation.put(XSDType.BOOLEAN,
+	correspondingTransformation.put(DataType.BOOLEAN,
 		Transformation.ENSURE_LOWERCASE);
-	correspondingTransformation.put(XSDType.DATE,
+	correspondingTransformation.put(DataType.DATE,
 		Transformation.NONE_REQUIRED);
-	correspondingTransformation.put(XSDType.TIME,
+	correspondingTransformation.put(DataType.TIME,
 		Transformation.NONE_REQUIRED);
-	correspondingTransformation.put(XSDType.DATETIME,
+	correspondingTransformation.put(DataType.DATETIME,
 		Transformation.REPLACE_SPACE_CHARACTER);
     }
 
@@ -65,7 +65,7 @@ public class XSDLexicalTransformation {
      * Get the corresponding transformation or conversion to string if the SQL
      * datatype does not occur in the table.
      */
-    public static Transformation getLexicalTransformation(XSDType xsdType) {
+    public static Transformation getLexicalTransformation(DataType xsdType) {
 	Transformation t = correspondingTransformation.get(xsdType);
 	if (t == null) {
 	    // Any types not appearing in the table, including all character
@@ -160,7 +160,7 @@ public class XSDLexicalTransformation {
 	return value.toLowerCase();
     }
 
-    public static String extractNaturalRDFFormFrom(XSDType xsdType, byte[] value)
+    public static String extractNaturalRDFFormFrom(DataType xsdType, byte[] value)
 	    throws UnsupportedEncodingException {
 	String result = new String("");
 	if (xsdType != null) {

@@ -42,7 +42,7 @@ import net.antidot.semantic.rdf.model.impl.sesame.SemiStatement;
 import net.antidot.semantic.rdf.model.tools.RDFDataValidator;
 import net.antidot.semantic.rdf.rdb2rdf.commons.RDFPrefixes;
 import net.antidot.semantic.rdf.rdb2rdf.commons.SpecificSQLToXMLS;
-import net.antidot.semantic.xmls.xsd.XSDType;
+import net.antidot.semantic.xmls.xsd.DataType;
 import net.antidot.sql.model.core.DriverType;
 import net.antidot.sql.model.core.SQLConnector;
 import net.antidot.sql.model.db.CandidateKey;
@@ -733,7 +733,7 @@ public class DirectMappingEngineWD20110324 implements DirectMappingEngine {
 			// Don't keep triple with null value
 			return null;
 		}
-		XSDType type = null;
+		DataType type = null;
 		SQLSpecificType sqlType = SQLSpecificType.toSQLType(d);
 		if (sqlType.isBlobType()) {
 			if (log.isDebugEnabled())
@@ -758,7 +758,7 @@ public class DirectMappingEngineWD20110324 implements DirectMappingEngine {
 								+ r.getParentBody().getParentTable()
 										.getTableName());
 		}
-		if (type.toString().equals(XSDType.STRING.toString())) {
+		if (type.toString().equals(DataType.STRING.toString())) {
 			l = vf.createLiteral(v);
 		} else {
 

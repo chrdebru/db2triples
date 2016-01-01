@@ -56,7 +56,7 @@ import net.antidot.semantic.rdf.rdb2rdf.r2rml.model.TermMap.TermMapType;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.model.TermType;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.model.TriplesMap;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.tools.R2RMLToolkit;
-import net.antidot.semantic.xmls.xsd.XSDType;
+import net.antidot.semantic.xmls.xsd.DataType;
 import net.antidot.sql.model.core.DriverType;
 import net.antidot.sql.model.db.ColumnIdentifier;
 import net.antidot.sql.model.db.ColumnIdentifierImpl;
@@ -797,7 +797,7 @@ public class R2RMLEngine {
 								+ value);
 			SQLType implicitDatatype = extractImplicitDatatype((ObjectMap) termMap);
 			// Convert implicit datatype into XSD
-			XSDType implicitXSDType = SQLToXMLS
+			DataType implicitXSDType = SQLToXMLS
 					.getEquivalentType(implicitDatatype);
 			if (implicitXSDType != termMap.getDataType()) {
 				// Type overidden
@@ -903,7 +903,7 @@ public class R2RMLEngine {
 		// 2. If dt is a character string type, then the result is a plain
 		// literal without
 		// language tag whose lexical form is the SQL data value.
-		XSDType xsdType = SQLToXMLS.getEquivalentType(dt);
+		DataType xsdType = SQLToXMLS.getEquivalentType(dt);
 		// Extract RDF natural lexical form
 		if (dt == null || dt.isStringType()) {
 			if (xsdType == null) {
