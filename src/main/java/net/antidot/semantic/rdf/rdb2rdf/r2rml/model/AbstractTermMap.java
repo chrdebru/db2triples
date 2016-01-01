@@ -33,6 +33,12 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.openrdf.model.Literal;
+import org.openrdf.model.URI;
+import org.openrdf.model.Value;
+
 import net.antidot.semantic.rdf.model.tools.RDFDataValidator;
 import net.antidot.semantic.rdf.rdb2rdf.commons.SQLToXMLS;
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLStructureException;
@@ -43,15 +49,7 @@ import net.antidot.semantic.xmls.xsd.XSDLexicalTransformation;
 import net.antidot.semantic.xmls.xsd.XSDType;
 import net.antidot.sql.model.db.ColumnIdentifier;
 import net.antidot.sql.model.db.ColumnIdentifierImpl;
-import net.antidot.sql.model.tools.SQLDataValidator;
-import net.antidot.sql.model.tools.SQLToolkit;
 import net.antidot.sql.model.type.SQLType;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.openrdf.model.Literal;
-import org.openrdf.model.URI;
-import org.openrdf.model.Value;
 
 public abstract class AbstractTermMap implements TermMap {
 
