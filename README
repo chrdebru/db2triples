@@ -1,3 +1,7 @@
+This is the old implementation of R2RML-F [1], extending db2triples. For the new version, visit: https://github.com/chrdebru/r2rml
+
+[1] C. Debruyne and D. O'Sullivan. R2RML-F: Towards Sharing and Executing Domain Logic in R2RML Mappings. In Proceedings of the Workshop on Linked Data on the Web, LDOW 2016, co-located with the 25th International World Wide Web Conference (WWW 2016), Montreal, Canada, April 12th, 2016, 2016
+
 DB2Triples - RDB2RDF Antidot implementation
 LGPL Licence 2.1
 https://github.com/antidot/db2triples
